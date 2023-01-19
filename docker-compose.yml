@@ -8,14 +8,15 @@ services:
           - "6379"
         environment:
           - ALLOW_EMPTY_PASSWORD=yes
-          - HOST_REDIS=yes
-          - PORT_REDIS=6379
+    #     - HOST_REDIS=yes
+    #     - PORT_REDIS=6379
 
-      server:
-        image: 'chat-py'
-        container_name: 'chat-py-server'
+    # server:
+    #   image: 'chat-py'
+    #   container_name: 'chat-py-server'
 
 
-      client:
-        image: 'chat-py'
-        container_name: 'chat-py-client'
+    # client:
+    #   image: 'chat-py'
+    #   container_name: 'chat-py-client'
+
