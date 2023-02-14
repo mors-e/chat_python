@@ -6,8 +6,10 @@ import websockets
 
 from common.structures import Message
 
+HOST = str(input('Введите host:'))
+PORT = int(input('Введите port:'))
 
-WS_URL = 'ws://localhost:8000/room'
+WS_URL = f'ws://{HOST}:{PORT}/room'
 
 
 async def connect(url):

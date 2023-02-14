@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+      server:
+        image: 'chat-py'
+        build: .
+        container_name: 'chat-py-client'

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-enviroment server.main:app --host=$HOST --port=$PORT
+uvicorn server.main:app --host=$HOST --port=$PORT
