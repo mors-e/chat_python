@@ -3,26 +3,36 @@
 Чтобы запустить проект нужно прописать некотрые команды  
 для начала нужно создать окружение env  
 
-**python -m venv env** 
+```python
+python -m venv env
+```
 
 ## Далее активировать env и установить библиотеки 
 
-**pip install -r requirements.txt**
+```python 
+pip install -r requirements.txt
+```
 
 ## Чтобы запустить сервер и клиентов
+```
+docker-compose -f docker-compose-server.yml up -d
+```
+- запуск севера  
+```
+docker-compose -f docker-compose-client.yml up -d
+```
+- запуск клиента
 
-Был создан файл .run чтобы запустить проект в PyCharm 
-Пред этим нужно установить Docker и прописать следующую команду
-
-**docker-compose up -d**
-
-### Чтобы запустить несколько клиентов сразу  
+### Чтобы запустить несколько клиентов сразу (Тестирование на одном компе)  
 **нужно зайти в File -> Settings -> Tools -> Terminal  
 в поле Environment varibales следует прописать PYTHONPATH=.  
 перезапустить Terminal  
-и прописать команду  
-python client/client.py  
-каждый раз создаётся новый клиент**
+и прописать команду**
+
+```python
+python client/client.py
+```  
+**каждый раз создаётся новый клиент**
 
 ## Подключение клиентов и создание комнат
 
