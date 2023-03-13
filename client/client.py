@@ -1,13 +1,14 @@
 import asyncio
 from datetime import datetime
+import serial
 
 import aioconsole
 import websockets
 
 from common.structures import Message
 
-
-WS_URL = 'ws://localhost:8000/room'
+#95.163.236.35
+WS_URL = 'ws://95.163.236.35:8000/room'
 
 
 async def connect(url):
@@ -27,7 +28,7 @@ async def listen_room(ws):
 
 async def listen_input(ws, user):
     while True:
-        text = await aioconsole.ainput()
+        text = await read_arduino()
 
         message = Message(
             text=text,
@@ -36,6 +37,14 @@ async def listen_input(ws, user):
         ).to_json(ensure_ascii=False)
 
         await ws.send(message)
+
+
+async def read_arduino():
+    port = serial.Seril("/dev/ttyACM0", 9600)
+    while True:
+        data = port.readline().decode("utf-8").strip()
+        if data:
+            return data.encode("utf-8")
 
 
 async def main():
